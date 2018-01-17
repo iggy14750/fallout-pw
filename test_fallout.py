@@ -17,5 +17,10 @@ class TestPasswordSet(unittest.TestCase):
         words = {'one', 'two', 'three'}
         self.assertEqual(words, set(fallout.PasswordSet(words)))
 
+    def test_best_single_element(self):
+        """ Initializing a PasswordSet with a single element will make that element the best. """
+        self.assertEqual('single', fallout.PasswordSet(['single']).best())
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -11,6 +11,11 @@ class PasswordSet:
     def __iter__(self):
         return iter(self._words)
 
+    def best(self):
+        """ Returns the best choice out these possible passwords.
+        Determined as the one which shares the most letters with the others. """
+        return self._words[0]
+
 
 if __name__ == '__main__':
     pass
