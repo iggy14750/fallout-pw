@@ -6,7 +6,10 @@ class PasswordSet:
     a set of passwords, and provides methods for querying them. """
 
     def __init__(self, passwords):
-        pass
+        self._words = list(passwords)
+
+    def __iter__(self):
+        return iter(self._words)
 
 
 if __name__ == '__main__':

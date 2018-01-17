@@ -12,5 +12,10 @@ class TestPasswordSet(unittest.TestCase):
             ['One', 'Two', 'Three']
         ))
 
+    def test_iterator(self):
+        """ Test that this object outputs the same objects in an iterator."""
+        words = {'one', 'two', 'three'}
+        self.assertEqual(words, set(fallout.PasswordSet(words)))
+
 if __name__ == '__main__':
     unittest.main()
