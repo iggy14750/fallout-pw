@@ -4,6 +4,23 @@
 import unittest
 import fallout
 
+class TestFunctions(unittest.TestCase):
+    """ Testing out a functional approach now. """
+
+    def test_shared_same_word(self):
+        """ All letters are shared between two copies of the same word. """
+        word = 'string'
+        self.assertEqual(fallout.shared(word, word), len(word))
+
+    def test_shared_different_words_same_len(self):
+        """ 3 letters are shared between 'love', and 'tove'. """
+        self.assertEqual(3, fallout.shared('love', 'tove'))
+
+    def test_shared_different_words_different_len(self):
+        """ 3 letters are shared between 'disco' and 'Tisc'."""
+        self.assertEqual(3, fallout.shared('disco', 'Tisc'))
+
+
 class TestPasswordSet(unittest.TestCase):
     """ Pretty self-explanatory. """
     def test_constructor(self):
@@ -25,6 +42,11 @@ class TestPasswordSet(unittest.TestCase):
         """ The best of this list happens to be the first one. """
         words = ['fire', 'ford', 'kirk']
         self.assertEqual(words[0], fallout.PasswordSet(words).best())
+
+    def _test_best_not_first_element(self):
+        """ Now the best element is the second one. """
+        words = ['rimir', 'rumor', 'yuyoy']
+        self.assertEqual(words[1], fallout.PasswordSet(words).best())
 
 
 if __name__ == '__main__':
