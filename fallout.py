@@ -27,7 +27,9 @@ def best(passwords):
             winner = (word, num)
     return winner[0]
 
-
+def filter_shares(iterable, word, number):
+    """ Filters 'iterable' down to those which share 'number' characters with 'word'."""
+    return iterable
 
 
 

@@ -35,6 +35,23 @@ class TestFunctions(unittest.TestCase):
         words = ['rimir', 'rumor', 'yuyoy']
         self.assertEqual(words[1], fallout.best(words))
 
+    def test_filter_empty_iterable(self):
+        """ Nothing in, nothing out. """
+        self.assertEqual([], list(fallout.filter_shares([], 'word', 2)))
+
+    def test_filter_all_survive(self):
+        """ All elements will match the criteria. """
+        iterable = ['TndTT', 'uTTTnT', 'unT']
+        word = 'undone'
+        self.assertEqual(iterable, list(fallout.filter_shares(iterable, word, 2)))
+
+
+
+
+
+
+
+
 
 class TestPasswordSet(unittest.TestCase):
     """ Pretty self-explanatory. """
