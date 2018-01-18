@@ -15,6 +15,27 @@ def shared(one, two):
     are equivalent and in the same position. """
     return count(zip(one, two), lambda tup: tup[0] == tup[1])
 
+def best(passwords):
+    """ Returns the element of 'passwords' which shares the most characters
+    with the other elements. """
+    winner = (None, 0)
+    for word in passwords:
+        num = 0
+        for other in passwords:
+            num += shared(word, other)
+        if num > winner[1]:
+            winner = (word, num)
+    return winner[0]
+
+
+
+
+
+
+
+
+
+
 class PasswordSet:
     """ The primary abstraction, PasswordSet holds, shocking,
     a set of passwords, and provides methods for querying them. """

@@ -20,6 +20,21 @@ class TestFunctions(unittest.TestCase):
         """ 3 letters are shared between 'disco' and 'Tisc'."""
         self.assertEqual(3, fallout.shared('disco', 'Tisc'))
 
+    def test_best_first_element(self):
+        """ The best element of this list is the first one. """
+        words = ['fire', 'ford', 'kirk']
+        self.assertEqual(words[0], fallout.best(words))
+
+    def test_best_single_element(self):
+        """ The best element of a signleton is the element. """
+        word = 'this'
+        self.assertEqual(word, fallout.best([word]))
+
+    def test_best_second_elem(self):
+        """ The best element of this list is second. """
+        words = ['rimir', 'rumor', 'yuyoy']
+        self.assertEqual(words[1], fallout.best(words))
+
 
 class TestPasswordSet(unittest.TestCase):
     """ Pretty self-explanatory. """
