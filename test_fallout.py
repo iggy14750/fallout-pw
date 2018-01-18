@@ -13,8 +13,8 @@ class TestFunctions(unittest.TestCase):
         self.assertEqual(fallout.shared(word, word), len(word))
 
     def test_shared_same_len(self):
-        """ 3 letters are shared between 'love', and 'tove'. """
-        self.assertEqual(3, fallout.shared('love', 'tove'))
+        """ 3 letters are shared between 'love', and 'lode'. """
+        self.assertEqual(3, fallout.shared('love', 'lode'))
 
     def test_shared_different_len(self):
         """ 3 letters are shared between 'disco' and 'Tisc'."""
