@@ -1,6 +1,18 @@
 
 """ A utility for cracking terminals in the Fallout universe. """
 
+def main():
+    """ Main. """
+    import sys
+    data = []
+    for line in open(sys.argv[1]):
+        data.append(line.strip())
+    while True:
+        print('Try {}'.format(best(data)))
+        num = int(input('Enter number of shared characters: '))
+        data = filter_shares(data, best(data), num)
+        print('That leaves: {}'.format(list(data)))
+
 def count(iterable, condition=None):
     """ Counts the elements of 'iterable' which meet 'condition'."""
     num = 0
@@ -28,12 +40,13 @@ def best(passwords):
     return winner[0]
 
 def filter_shares(iterable, word, number):
-    """ Filters 'iterable' down to those which share 'number' characters with 'word'."""
-    return filter(
+    """ Filters 'iterable' down to those which share
+    'number' characters with 'word'."""
+    return list(filter(
         lambda elem: shared(elem, word) == number,
         iterable
-    )
+    ))
 
 
 if __name__ == '__main__':
-    pass
+    main()

@@ -27,13 +27,18 @@ class TestFunctions(unittest.TestCase):
 
     def test_best_single_element(self):
         """ The best element of a signleton is the element. """
-        word = 'this'
+        word = 'MIGHTY'
         self.assertEqual(word, fallout.best([word]))
 
     def test_best_second_elem(self):
         """ The best element of this list is second. """
         words = ['rimir', 'rumor', 'yuyoy']
         self.assertEqual(words[1], fallout.best(words))
+
+    def test_best_specific_bug(self):
+        """ Specific bug run into when debugging app. """
+        words = ['MIGHTY', 'SPRUNG', 'LOCALS']
+        self.assertEqual('MIGHTY', fallout.best(words))
 
     def test_filter_empty_iterable(self):
         """ Nothing in, nothing out. """
@@ -51,6 +56,12 @@ class TestFunctions(unittest.TestCase):
         # match too many, match too few, wrong position
         iterable = ['yourself', 'nothing', 'TyouTTT']
         self.assertEqual([], list(fallout.filter_shares(iterable, word, 3)))
+
+    def test_filter_zero_shared(self):
+        """ Number is zero, and output should be non-empty. """
+        word = 'wasted'
+        iterable = ['mighty']
+        self.assertEqual(iterable, list(fallout.filter_shares(iterable, word, 0)))
 
 
 if __name__ == '__main__':
