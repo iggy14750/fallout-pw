@@ -29,7 +29,10 @@ def best(passwords):
 
 def filter_shares(iterable, word, number):
     """ Filters 'iterable' down to those which share 'number' characters with 'word'."""
-    return iterable
+    return filter(
+        lambda elem: shared(elem, word) == number,
+        iterable
+    )
 
 
 

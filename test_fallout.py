@@ -45,6 +45,13 @@ class TestFunctions(unittest.TestCase):
         word = 'undone'
         self.assertEqual(iterable, list(fallout.filter_shares(iterable, word, 2)))
 
+    def test_filter_none_survive(self):
+        """ No elements will match criteria. """
+        word = 'yourself'
+        # match too many, match too few, wrong position
+        iterable = ['yourself', 'nothing', 'TyouTTT']
+        self.assertEqual([], list(fallout.filter_shares(iterable, word, 3)))
+
 
 
 
