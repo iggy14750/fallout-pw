@@ -12,3 +12,6 @@ How Do I Use It?
 3. Open up your Terminal (Mac/Linux) or Command Prompt (Windows), and type in `python fallout.py <path-to-text-file>`.
 4. Follow the instructions presented to you on the terminal.
 5. Hit `Cltr+C` to end.
+
+Here I am, making a change to this document to be found later.
+
